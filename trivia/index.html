@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What's the name of the first brazilian president to be elected after going to jail?</h3>
+                <form id="form1">
+                <input type="button"  id="butao" class="correct" value="LULA">
+                <input type="button" id="butao2" class="wrong" value="BOLSONARO">
+                <input type="button" id="butao2" class="wrong" value="ZEZINHO">
+                <input type="button" id="butao2" class="wrong" value="CIRO">
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What's the name of the country with the largest kangaroo population on earth?</h3>
+
+                <input type="text" placeholder="Your answer" id="q2">
+                <input type="submit" value="Send" id="form2_q2">
+
+            </div>
+        </div>
+
+        <script>
+            var btn = document.querySelectorAll('.correct');
+            btn.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    this.style.backgroundColor = "#12b82e";
+                    this.style.color = 'white';
+                    $( "#form1" ).after("<div style='color:#12b82e;font-weight:bold'>Correct!</div>");
+
+                })
+            })
+
+            var btns = document.querySelectorAll('.wrong');
+            btns.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    this.style.backgroundColor = '#eb383b';
+                    this.style.color = 'white';
+                    $( "#form1" ).after("<div style='color:#eb383b;font-weight:bold'>Incorrect!</div>");
+                })
+            })
+
+            var new_form = document.querySelector("#form2_q2")
+            new_form.addEventListener('click', function() {
+                var txt_response = document.querySelector('#q2')
+                if (txt_response.value == 'Australia') {
+                    txt_response.style.backgroundColor = "#12b82e";
+                    $("#form2_q2").after("<div style='color:#12b82e;font-weight:bold'>Correct!</div>");
+                }
+                else {
+                    txt_response.style.backgroundColor = "#eb383b";
+                    $("#form2_q2").after("<div style='color:#eb383b;font-weight:bold'>Incorrect!</div>");
+                }
+            })
+        </script>
+    </body>
+</html>
