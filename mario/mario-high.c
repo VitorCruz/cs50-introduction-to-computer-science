@@ -9,7 +9,7 @@ int main(void) {
     x = get_int("Height: ");
     }
 
-    string espace = " ";
+    string space = " ";
     for (int i = 1; i <= x; i++){
 
         for (int j = 1; j <= x; j++){
@@ -17,7 +17,7 @@ int main(void) {
             printf("#");
         }
         else {
-            printf("%s", espace);
+            printf("%s", space);
         }
         }
         printf("\n");
