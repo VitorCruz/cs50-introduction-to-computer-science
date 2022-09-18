@@ -1,0 +1,3 @@
+sort1 = Bubble Sort
+sort2 = Merge Sort
+sort3 = Linear Sort
