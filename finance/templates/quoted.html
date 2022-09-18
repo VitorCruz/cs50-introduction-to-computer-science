@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted Stocks
+{% endblock %}
+
+{% block main %}
+   <h1> Chosen Stocks</h1>
+   <table class="table table-sm">
+    <thead>
+        <tr>
+            <th scope="col">NAME</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">SYMBOL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ price }}</td>
+            <td>{{ symbol }}</td>
+        </tr>
+    </tbody>
+   </table>
+{% endblock %}

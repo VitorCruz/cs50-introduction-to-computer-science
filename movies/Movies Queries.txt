@@ -1,0 +1,15 @@
+1. SELECT title FROM movies where year = 2008;
+2. SELECT birth FROM people WHERE name = 'Emma Stone';
+3. SELECT title FROM movies where year >= 2018 order by title asc;
+4. SELECT count(0) number_movies FROM ratings where rating = 10.0;
+5. SELECT title,year FROM movies where title like 'Harry Potter%' order by year;
+6. SELECT avg(rating) average_rating FROM ratings where movie_id in (SELECT id FROM movies where year = 2012);
+7. SELECT M.title, R.rating FROM ratings R INNER JOIN movies M on R.movie_id = M.id where m.year = 2010 and R.rating is not null order by r.rating desc, M.title;
+8. SELECT P.name FROM movies M INNER JOIN stars S on M.id = S.movie_id INNER JOIN people P on S.person_id = P.id where M.title = 'Toy Story';
+9. SELECT distinct P.name FROM movies M INNER JOIN stars S on M.id = S.movie_id INNER JOIN people P on S.person_id = P.id where M.year = 2004 order by P.birth;
+10. SELECT distinct P.name FROM people P INNER JOIN directors D on P.id = D.person_id INNER JOIN ratings R on D.movie_id = R.movie_id WHERE R.rating >= 9.0;
+11. SELECT M.title FROM ratings R INNER JOIN movies M on R.movie_id = M.id INNER JOIN stars S on M.id = S.movie_id INNER JOIN people P on S.person_id = P.id WHERE P.name = 'Chadwick Boseman' order by r.rating desc limit 5;
+12. SELECT M.title FROM movies M INNER JOIN stars S on M.id = S.movie_id INNER JOIN people P on S.person_id = P.id WHERE (P.name = 'Johnny Depp') and S.movie_id in (SELECT M.id FROM movies M INNER JOIN stars S on M.id = S.movie_id INNER JOIN people P on S.person_id = P.id WHERE P.name = 'Helena Bonham Carter');
+13. SELECT P.name FROM stars S INNER JOIN people P on S.person_id = P.id WHERE (P.name <> 'Kevin Bacon' or P.birth <> 1958) and S.movie_id in (SELECT M.id FROM movies M INNER JOIN stars S on M.id = S.movie_id INNER JOIN people P on S.person_id = P.id WHERE P.name = 'Kevin Bacon' and P.birth = 1958);
+
+

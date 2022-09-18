@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<h1> WELCOME TO CS50 FINANCE </h1>
+
+<div class="row justify-content-center">
+<table class="table table-hover table-dark tablevitor">
+    <thead class="thead-dark">
+        <tr>
+            <th>STOCK SYMBOL</th>
+            <th>Current Shares</th>
+            <th>Price</th>
+            <th>Total $$</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in stocks %}
+
+        <tr>
+            <td>{{ i["stock_symbol"] }}</td>
+            <td>{{ "%.2f"|format(i["shares_number"]) }}</td>
+            <td>{{ "$%.2f"|format(stock_prices[i["stock_symbol"]]) }}</td>
+            <td>{{ "$%.2f"|format(i["shares_number"] * stock_prices[i["stock_symbol"]]) }}</td>
+        </tr>
+
+
+        {% endfor%}
+        <tr class="table-success">
+            <td>Cash</td>
+            <td>{{ cash }}</td>
+            <td>{{ "$%.2f"|format(cash) }}</td>
+            <td>{{ "$%.2f"|format(cash) }}</td>
+        </tr>
+        <tr class="table-success">
+            <td>TOTAL</td>
+            <td></td>
+            <td></td>
+            <td>{{ "$%.2f"|format(totalmoney) }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+{% endblock %}
+{% block final %}
+<footer class="mb-5 small text-center text-muted" id="footer">
+    Data provided by <a href="https://iexcloud.io/">IEX</a>
+</footer>
+{% endblock %}

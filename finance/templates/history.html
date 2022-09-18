@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<h1> YOUR ACCOUNT HISTORY</h1>
+
+<div class="row justify-content-center">
+<table class="table table-hover table-dark tablevitor">
+    <thead class="thead-dark">
+        <tr>
+            <th>TransactionId</th>
+            <th>Date</th>
+            <th>Type of Transaction</th>
+            <th>Stock Symbol</th>
+            <th>Stock Price</th>
+            <th>Number of Shares</th>
+            <th>Final Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in transactions %}
+
+        {% if i["transaction_type"] == 'buy' %}
+        <tr class="table-success">
+        {% else%}
+        <tr class="table-danger">
+        {% endif %}
+            <td>{{ i["transaction_id"] }}</td>
+            <td>{{ i["datetime"] }}</td>
+            <td>{{ i["transaction_type"] }}</td>
+            <td>{{ i["stock_symbol"] }}</td>
+            <td>{{ i["stock_price"] }}</td>
+            <td>{{ i["shares_number"] }}</td>
+            <td>{{ i["final_price"] }}</td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
+</div>
+
+
+{% endblock %}
+{% block final %}
+<footer class="mb-5 small text-center text-muted" id="footer">
+    Data provided by <a href="https://iexcloud.io/">IEX</a>
+</footer>
+{% endblock %}
